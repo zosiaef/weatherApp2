@@ -38,8 +38,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Zofia Franczyk"
-        self.myName.text = fullJson["title"] as? String
+        navigationItem.title = fullJson["title"] as? String
+        self.myName.text = "Zofia Franczyk"
         self.prevB.isEnabled = false
         self.prevB.backgroundColor = UIColor.gray
         self.prevB.layer.cornerRadius = 10

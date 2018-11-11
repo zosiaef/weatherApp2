@@ -22,8 +22,8 @@ class MasterViewController: UITableViewController {
         // Do any additional setup after loading the view, typically from a nib.
         navigationItem.leftBarButtonItem = editButtonItem
 
-        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertNewObject(_:)))
-        navigationItem.rightBarButtonItem = addButton
+//        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertNewObject(_:)))
+ //       navigationItem.rightBarButtonItem = addButton
         if let split = splitViewController {
             let controllers = split.viewControllers
             detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
@@ -33,6 +33,18 @@ class MasterViewController: UITableViewController {
         }
     }
 
+    @IBAction func added(segue: UIStoryboardSegue){
+        let VC = segue.source as! AddViewController
+        let selectedCity = VC.selectedCity!
+        
+        if cities.contains(where: {$0.woeid == selectedCity.woeid}){
+            return
+        }
+        self.getJson(woeid: selectedCity.woeid)
+        cities.append(selectedCity)
+        
+    }
+    
     func getJson(woeid: Int){
         let urlString = "https://www.metaweather.com/api/location/\(woeid)/"
         guard let requestUrl = URL(string:urlString) else { return }
@@ -67,12 +79,6 @@ class MasterViewController: UITableViewController {
         super.viewWillAppear(animated)
     }
 
-    @objc
-    func insertNewObject(_ sender: Any) {
-        objects.insert(NSDate(), at: 0)
-        let indexPath = IndexPath(row: 0, section: 0)
-        tableView.insertRows(at: [indexPath], with: .automatic)
-    }
 
     // MARK: - Segues
 
@@ -81,9 +87,6 @@ class MasterViewController: UITableViewController {
             if let indexPath = tableView.indexPathForSelectedRow {
                 let controller = (segue.destination as! UINavigationController).topViewController as! ViewController
                 controller.fullJson = jsons[indexPath.row]
-               // controller.detailItem = object
-               // controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
-               // controller.navigationItem.leftItemsSupplementBackButton = true
                 
             }
         }
@@ -105,7 +108,7 @@ class MasterViewController: UITableViewController {
         var weather: [[String:Any]?] = jsons[indexPath.row]["consolidated_weather"] as! [[String : Any]?]
         let type = String(weather[0]?["weather_state_abbr"] as! String);
         
-        cell.textLabel!.text = self.cities[indexPath.row].city
+        cell.textLabel!.text = jsons[indexPath.row]["title"] as? String
         cell.detailTextLabel!.text = String((weather[0]?["the_temp"] as! Double).rounded())
 
         if let theImage = try? UIImage(data: Data(contentsOf: URL(string: "https://www.metaweather.com/static/img/weather/png/64/\(type).png")!)) {

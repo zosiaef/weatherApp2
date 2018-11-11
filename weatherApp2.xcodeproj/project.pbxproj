@@ -15,6 +15,9 @@
 		94E166F42195D2410014B08A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94E166F22195D2410014B08A /* LaunchScreen.storyboard */; };
 		94E166FF2195D2420014B08A /* weatherApp2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E166FE2195D2420014B08A /* weatherApp2Tests.swift */; };
 		94E1670A2195D2420014B08A /* weatherApp2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E167092195D2420014B08A /* weatherApp2UITests.swift */; };
+		94E167182195D54C0014B08A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E167172195D54C0014B08A /* ViewController.swift */; };
+		94E1671A2195D9650014B08A /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E167192195D9650014B08A /* City.swift */; };
+		94E1671C2195FCEC0014B08A /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E1671B2195FCEC0014B08A /* AddViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		94E167052195D2420014B08A /* weatherApp2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = weatherApp2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		94E167092195D2420014B08A /* weatherApp2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weatherApp2UITests.swift; sourceTree = "<group>"; };
 		94E1670B2195D2420014B08A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		94E167172195D54C0014B08A /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		94E167192195D9650014B08A /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
+		94E1671B2195FCEC0014B08A /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,10 +107,13 @@
 			children = (
 				94E166E72195D2390014B08A /* AppDelegate.swift */,
 				94E166E92195D2390014B08A /* MasterViewController.swift */,
+				94E167192195D9650014B08A /* City.swift */,
 				94E166EB2195D2390014B08A /* DetailViewController.swift */,
 				94E166ED2195D2390014B08A /* Main.storyboard */,
+				94E1671B2195FCEC0014B08A /* AddViewController.swift */,
 				94E166F02195D2410014B08A /* Assets.xcassets */,
 				94E166F22195D2410014B08A /* LaunchScreen.storyboard */,
+				94E167172195D54C0014B08A /* ViewController.swift */,
 				94E166F52195D2410014B08A /* Info.plist */,
 			);
 			path = weatherApp2;
@@ -260,7 +269,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				94E166EC2195D2390014B08A /* DetailViewController.swift in Sources */,
+				94E1671A2195D9650014B08A /* City.swift in Sources */,
+				94E1671C2195FCEC0014B08A /* AddViewController.swift in Sources */,
 				94E166EA2195D2390014B08A /* MasterViewController.swift in Sources */,
+				94E167182195D54C0014B08A /* ViewController.swift in Sources */,
 				94E166E82195D2390014B08A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -436,7 +448,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = weatherApp2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -444,6 +457,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = pl.edu.agh.student.weatherApp2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -453,7 +467,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = weatherApp2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -461,6 +476,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = pl.edu.agh.student.weatherApp2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

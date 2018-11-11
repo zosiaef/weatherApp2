@@ -32,9 +32,9 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         
         //nadpisanie dodawania
         cell.textLabel!.text = cities[indexPath.row]["title"] as? String
-        let distance = cities[indexPath.row]["distance"] as? String
+        let distance = cities[indexPath.row]["distance"] as? Int
         if (distance != nil){
-            cell.detailTextLabel?.text = "\(distance!) km"
+            cell.detailTextLabel?.text = "\(distance!/1000) km"
         }
         return cell
     }

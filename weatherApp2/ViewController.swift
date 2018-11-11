@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class ViewController: UIViewController {
     
@@ -109,6 +110,20 @@ class ViewController: UIViewController {
         if (index == 0){
             self.prevB.isEnabled = false
             self.prevB.backgroundColor = UIColor.gray
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Map" {
+            let controller = segue.destination as! MapViewController
+            
+            let coordinates = fullJson["latt_long"] as? String
+            let latt_longArray = coordinates!.components(separatedBy: ",")
+            
+            if let latitude = Double(latt_longArray[0]),
+                let longitude = Double(latt_longArray[1]) {
+                controller.coordinates =  CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+            }
         }
     }
 }

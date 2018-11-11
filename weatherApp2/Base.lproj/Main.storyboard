@@ -356,6 +356,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="htp-MX-jZg">
                         <barButtonItem key="backBarButtonItem" title="Back" id="znf-aO-WQu"/>
+                        <barButtonItem key="rightBarButtonItem" title="Map" id="uRf-OR-Urt">
+                            <connections>
+                                <segue destination="q0o-Oa-1n0" kind="showDetail" identifier="Map" id="ZCf-KT-85t"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="date" destination="zId-Qv-Iqa" id="Txh-3u-Xi2"/>
@@ -381,6 +386,35 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fu2-w6-056" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="842" y="168"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="nkk-gY-YiV">
+            <objects>
+                <viewController id="q0o-Oa-1n0" customClass="MapViewController" customModule="weatherApp2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="voh-Lh-DSP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Juy-tu-v8N">
+                                <rect key="frame" x="10" y="74" width="355" height="583"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="9pc-Yy-bqx" firstAttribute="trailing" secondItem="Juy-tu-v8N" secondAttribute="trailing" constant="10" id="aT0-Od-BvO"/>
+                            <constraint firstItem="9pc-Yy-bqx" firstAttribute="bottom" secondItem="Juy-tu-v8N" secondAttribute="bottom" constant="10" id="bYi-JH-D5r"/>
+                            <constraint firstItem="Juy-tu-v8N" firstAttribute="top" secondItem="9pc-Yy-bqx" secondAttribute="top" constant="10" id="oLF-VW-trb"/>
+                            <constraint firstItem="Juy-tu-v8N" firstAttribute="leading" secondItem="9pc-Yy-bqx" secondAttribute="leading" constant="10" id="xWZ-Ga-Ael"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="9pc-Yy-bqx"/>
+                    </view>
+                    <connections>
+                        <outlet property="map" destination="Juy-tu-v8N" id="Wxz-wb-wQ0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d44-q1-Ude" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1601" y="168"/>
         </scene>
         <!--Zofia Franczyk-->
         <scene sceneID="8Dy-pQ-fAG">
@@ -533,6 +567,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="6S0-TO-JiA"/>
+        <segue reference="Tll-UG-LXB"/>
     </inferredMetricsTieBreakers>
 </document>
